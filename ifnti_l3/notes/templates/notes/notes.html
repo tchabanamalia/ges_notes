@@ -1,0 +1,25 @@
+<h1>La liste des notes des élèves</h1><br>
+<div>
+    <table border=1>
+        <thead>
+            <tr>
+                <td>Identifiant</td>
+                <td>Nom de l'élève</td>
+                <td>Matière</td>
+                <td>Note</td>
+            </tr>
+        </tr>
+        </thead>
+        <tbody>
+            {% for note in lesNotes %}
+                <tr>
+                  <td>{{note.id}}</td>
+                  <td>{{note.eleve}}</td>
+                  <td>{{note.matiere}}</td>   
+                  <td>{{note.valeur}}</td>                                     
+                </tr>
+                {% endfor%}
+                </tbody>
+            </table>
+            </div>
+		

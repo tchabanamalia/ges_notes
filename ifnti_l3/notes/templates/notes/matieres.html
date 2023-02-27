@@ -1,0 +1,26 @@
+<h1>La liste des Matières</h1><br>
+<div>
+    <table border=1>
+        <thead>
+            <tr>
+                <td>Identifiant</td>
+                <td>Nom</td>
+                <td>Enseignant</td>
+                <td>Générer_pdf</td>
+
+            </tr>
+        </tr>
+        </thead>
+        <tbody>
+            {% for matiere in lesMatieres %}
+                <tr>
+                  <td>{{matiere.id}}</td>
+                  <td>{{matiere.nom}}</td>
+                  <td>{{matiere.enseignant}}</td>                    
+                  <td><a href="{% url 'notes:noteEleves' matiere.id%}">Générer_pdf</a></td>
+                </tr>
+                {% endfor%}
+                </tbody>
+            </table>
+            </div>
+		

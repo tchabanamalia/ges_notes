@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Information propre à un élève </h1>
+    <div>
+    <table border="1">
+        <thead>
+        <tr>
+            <td><strong>Ientifiant</strong></td>
+            <td><strong>Nom</strong></td>
+            <td><strong>Prénom</strong></td>
+            <td><strong>Sexe</strong></td>
+            <td><strong>Date de naissance</strong></td>
+            <td><strong>Niveau</strong></td>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> {{ eleve.id }} </td>
+            <td> {{ eleve.nom }} </td>
+            <td> {{ eleve.prenom }} </td>
+            <td> {{ eleve.sexe }} </td>
+            <td> {{ eleve.date_naissance }} </td>
+            <td> {{ eleve.niveau }} </td>
+        </tr>
+    </tbody>
+    </table>
+    <div>
+        <h3>Liste des matières suivi par l'élève {{ eleve.nom }} {{ eleve.prenom }} </h3>
+        <ul>
+            {% for m in eleve.matieres.all %}
+            <td><li>{{ m.nom }} <a href="{% url 'notes:add_note' eleve.id m.id %}">add_note</a></li></td>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+</body>
+</html>

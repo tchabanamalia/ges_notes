@@ -1,0 +1,19 @@
+{% extends "foundation/base.html" %}
+
+{% block base_body %}
+
+
+<div style="align-content: center; text-align: center;">
+    <h1>Saisi de la note</h1>
+    <form name="note" method="post" action="">
+        {% csrf_token %}
+        <label>Entrez la note de l'élève</label>
+        <input name="valeur" id="note">
+        <!--input type="submit" value="Save"-->
+    
+    <br/>
+    <div class="login-register"> <a class="button alert" href="{% url 'notes:eleves' %}">Annuler</a> <button class="button primary" type="submit">Valider</button> </div>
+</form>
+</div>
+  
+{% endblock base_body %}

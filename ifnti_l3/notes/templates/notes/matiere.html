@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Information propre à une matière</h1>
+    <table border=1>
+        <tr>
+            <td><strong>Identifiant</strong></td>
+            <td><strong>Nom</strong></td>
+            <td><strong>Enseignant</strong></td>
+            <td><strong>Niveau</strong></td>
+
+        </tr>
+        <tr>
+            <td> {{ matiere.id }} </td>
+            <td> {{ matiere.nom }} </td>
+            <td> {{ matiere.enseignant }} </td>
+            {% for n in matiere.niveau.all %}
+                <td> {{ n.nom }}</td>
+            {% endfor%}
+            
+
+        </tr>
+</body>
+</html>

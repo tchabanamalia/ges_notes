@@ -1,0 +1,144 @@
+{% extends "foundation/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% block base_title %}
+<style>
+  .login-register{
+    margin-right: -1000px;
+    margin-top: -55px;
+}
+</style>
+<h1 style="text-align: center;">Site IFNTI<span class="orange">.</span>
+<div class="login-register"><a class="button primary" href="#">Login</a>  <a class="button warning" href="#">Register</a></div>
+</h1>
+{% endblock base_title %}
+
+{# Custom head JS #}
+{% block head_js %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
+{% endblock head_js %}
+
+{% block base_body %}
+
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text"> <img src="{% static 'images/logoIfnti.png' %}" alt="Image not found"> </li>
+      <li class="menu-text">GES-IFNTI</li>
+      <li>
+        <a href="#">Étudiants</a>
+        <ul class="menu">
+          <li><a href="{% url 'notes:eleves' %}">Liste des étudiants</a></li>
+         
+          <li>
+            <a href="#">Détail d'un étudiant</a>
+            <ul class="menu">
+              {% for eleve in liste_eleves %}
+                <li><a href="{% url 'notes:eleve' eleve.id %}">{{eleve.nom}} {{eleve.prenom}}</a></li>
+              {% endfor%}
+            </ul>
+            </li>        
+          </li>
+        </ul>
+      </li>
+
+      <li><a href="#">UEs</a>
+        <ul class="menu">
+          <li><a href="{% url 'notes:matieres' %}">Liste des UEs</a></li>
+          <li>
+          <a href="#">Détail d'un UE</a>
+            <ul class="menu">
+              {% for matiere in list_matieres %}
+                <li><a href="{% url 'notes:matiere' matiere.id %}">{{matiere.nom}}</a></li>
+              {% endfor%}
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+
+      <li><a href="#">Niveaux</a>
+        <ul class="menu">
+          <li><a href="{% url 'notes:matieres' %}">L1</a></li>
+          <li><a href="{% url 'notes:matieres' %}">L2</a></li>
+          <li><a href="{% url 'notes:matieres' %}">L3</a></li>        
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
+
+
+<section id="main-image">
+  <div class="wrapper" style="width: 940px; margin: 0 auto; padding: 0 10px;">
+      <h2>Inscrivez-vous au concours<br><strong>d'entrée à l'IFNTI</strong></h2>
+      <a href="#" class="button-1">Par ici</a>
+  </div>
+</section>
+
+<div>
+  <!--img src="{% static 'images/main.jpg' %}" alt="Image not found"-->
+</div>
+ 
+<!--div class="row">
+  <div class="columns medium-2" style="background-color: blue;"><h6>Première colonne</h6>
+    </div>
+    <div class="columns medium-10" style="background-color: deepskyblue;"><h6>Deuxième colonne</h
+    <div class="row" style="background-color: brown;">
+    <div class="columns medium-12"><h6>premier bloc</h6>
+    </div>
+    <div class="columns medium-12"><h6>deuxième bloc</h6>
+    </div>
+    <div class="columns medium-12"><h6>troisième bloc</h6>
+    </div>
+    <div class="columns medium-12"><h6>quatrième bloc</h6>
+    </div>
+    </div>
+  </div>
+  </div -->
+
+<div class="row">
+  <div class="small-12 medium-4 large-3 columns">
+    <img src="{% static 'images/laptop.jpeg' %}" alt="Image not found">
+  </div>
+  <div class="small-12 medium-4 large-3 columns" style="background-color: rgb(86, 226, 43);">
+    Contenu de la colonne 2 Faites en sorte que la page affiche un bloc de colonnes(column-block) par ligne sur
+    les petits écrans (small screen), trois sur les moyens(medium) et quatre sur les grands
+    écrans(large screen). Copiez votre code
+  </div>
+  <div class="small-12 medium-4 large-3 columns" style="background-color: rgb(43, 46, 226);">
+    Contenu de la colonne 3 Qu’est-ce qu’un menu accordéon (Accordion Menu) ?
+    2. Sur la page de la liste des étudiants, ajoutez un menu accordéon que vous nommerez
+    VOIR TOUS LES ÉTUDIANTS et qui affiche tous les étudiants lorsque vous cliquez
+    dessus. Copiez votre code
+    3. Sur la page de la liste des UEs, ajoutez un m
+  </div>
+  <div class="small-12 medium-4 large-3 columns" style="background-color: rgb(226, 214, 43);">
+    Contenu de la colonne 4 Sur la page de la liste des UEs, ajoutez un menu accordéon que vous nommerez VOIR
+    TOUS LES UEs et qui affiche tous les UEs lorsque vous cliquez dessus. Copiez votre
+    code
+    4. Sur la page d’ajout de note, ajoutez deux types de boutons : un bouton de validation et
+    un bouton d’annulation. copier votre code.
+    Institut de formation au
+  </div>
+</div>
+
+
+
+
+
+  {% endblock base_body %}
+
+  {% endblock content %}
+

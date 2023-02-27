@@ -1,0 +1,23 @@
+<h1>La liste des élèves</h1><br>
+<div>
+    <br/>
+    <table border=1>
+        <thead>
+            <tr>
+                <td>Nom</td>
+                <td>prenom</td>
+                <td>Détails</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for eleve in lesEleves %}
+                <tr>
+                  <td>{{eleve.nom}}</td>
+                  <td>{{eleve.prenom}}</td>
+                  <td><a href="{% url 'notes:eleve' eleve.id %}">Détail</a></td>
+                </tr>
+                {% endfor%}
+                </tbody>
+            </table>
+            </div>
+		

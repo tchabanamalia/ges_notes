@@ -1,0 +1,29 @@
+<h1>La liste des élèves</h1><br>
+<div>
+    <br/>
+    <table border=1>
+        <thead>
+            <tr>
+                <td>Ientifiant</td>
+                <td>Nom</td>
+                <td>prenom</td>
+                <td>Sexe</td>
+                <td>Date de Naissance</td>
+                <td>Niveau</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for eleve in lesEleves %}
+                <tr>
+                  <td>{{eleve.id}}</td>
+                  <td>{{eleve.nom}}</td>
+                  <td>{{eleve.prenom}}</td>
+                  <td>{{eleve.sexe}}</td>
+                  <td>{{eleve.date_naissance}}</td>
+                  <td>{{eleve.niveau}}</td>
+                </tr>
+                {% endfor%}
+                </tbody>
+            </table>
+            </div>
+		
